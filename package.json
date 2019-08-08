@@ -1,0 +1,36 @@
+{
+    "name": "ts-express",
+    "version": "1.0.0",
+    "description": "TypeScript + Express.js",
+    "private": true,
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "tsc-watch --onSuccess \"node build/index.js\"",
+        "start": "npm run build && node build/index.js",
+        "build": "npm run clean && tsc",
+        "clean": "rm -rf build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/samnoh/ts-express.git"
+    },
+    "keywords": [
+        "TypeScript",
+        "Express.js"
+    ],
+    "author": "samnoh",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/samnoh/ts-express/issues"
+    },
+    "homepage": "https://github.com/samnoh/ts-express#readme",
+    "devDependencies": {
+        "tsc-watch": "^2.4.0",
+        "typescript": "^3.5.3",
+        "@types/express": "^4.17.0"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "morgan": "^1.9.1"
+    }
+}
