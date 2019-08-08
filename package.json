@@ -5,10 +5,11 @@
     "private": true,
     "main": "src/index.js",
     "scripts": {
-        "dev": "tsc-watch --onSuccess \"node build/index.js\"",
+        "dev": "npm run copy-static-assets && tsc-watch --onSuccess \"node build/index.js\"",
         "start": "npm run build && node build/index.js",
-        "build": "npm run clean && tsc",
-        "clean": "rm -rf build"
+        "build": "npm run clean && npm run copy-static-assets && tsc",
+        "clean": "rm -rf build",
+        "copy-static-assets": "cp -r src/public build"
     },
     "repository": {
         "type": "git",
@@ -25,12 +26,18 @@
     },
     "homepage": "https://github.com/samnoh/ts-express#readme",
     "devDependencies": {
+        "@types/dotenv": "^6.1.1",
+        "@types/express": "^4.17.0",
         "tsc-watch": "^2.4.0",
-        "typescript": "^3.5.3",
-        "@types/express": "^4.17.0"
+        "typescript": "^3.5.3"
     },
     "dependencies": {
+        "@types/morgan": "^1.7.36",
+        "bootstrap": "^4.3.1",
+        "dotenv": "^8.0.0",
         "express": "^4.17.1",
-        "morgan": "^1.9.1"
+        "jquery": "^3.4.1",
+        "morgan": "^1.9.1",
+        "pug": "^2.0.4"
     }
 }

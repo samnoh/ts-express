@@ -1,0 +1,23 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href='/') TS + Express
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.text-right.mr-3
+            li.nav-item(class=(title === 'Main' && 'active'))
+                a.nav-link(href='/') Home
+            li.nav-item(class=(title === 'Secret' && 'active'))
+                a.nav-link(href='/secret') Secret
+        if !user
+            ul.navbar-nav.ml-auto.text-right.mr-3
+                li.nav-item(class=(title === 'Login' && 'active'))
+                    a.nav-link(href='/auth/login') Login
+                li.nav-item(class=(title === 'Register' && 'active'))
+                    a.nav-link(href='/auth/signup') Register
+        else
+            ul.navbar-nav.ml-auto.text-right.mr-3
+                li.nav-item(class=(title === 'Profile | ' + user.id && 'active'))
+                    a.nav-link(href='/profile/' + user.id)= user.id
+            ul.navbar-nav.text-right.mr-3
+                li.nav-item
+                    a.nav-link(href='/auth/logout') Logout
