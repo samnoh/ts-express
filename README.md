@@ -10,8 +10,11 @@
 ### Mapped Types
 
 ```typescript
-type Keys = 'message' | 'isAdmin';
-type Flags = { [K in Keys]: boolean };
+type Roles = 'isUser' | 'isAdmin';
+const userHandler = (role: { [K in Roles]: boolean }): void => { ... };
+
+userHandler({'isUser': false});
+userHandler({'newKey': true}); // error!
 ```
 
 ### Express
