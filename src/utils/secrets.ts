@@ -8,10 +8,12 @@ if (fs.existsSync('.env')) {
     process.exit(1);
 }
 
-export const ENVIRONMENT = process.env.NODE_ENV;
-export const prod = ENVIRONMENT === 'production';
-export const SESSION_SECRET = process.env.SESSION_SECRET;
-export const MONGODB_URI = prod ? process.env.MONGODB_URI : process.env.MONGODB_URI_LOCAL;
+export const ENVIRONMENT: string = process.env.NODE_ENV as string;
+export const prod: boolean = ENVIRONMENT === 'production';
+export const SESSION_SECRET: string = process.env.SESSION_SECRET as string;
+export const MONGODB_URI: string = prod
+    ? (process.env.MONGODB_URI as string)
+    : (process.env.MONGODB_URI_LOCAL as string);
 
 if (!SESSION_SECRET) {
     console.error('Set SESSION_SECRET env variable.');
