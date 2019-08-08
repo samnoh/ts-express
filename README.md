@@ -16,7 +16,7 @@
 -   hpp
 -   pug
 
-## TIL
+## `TIL`
 
 ### Mapped Types
 
