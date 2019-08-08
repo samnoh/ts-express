@@ -2,15 +2,19 @@
 
 ## `Dependencies`
 
+-   bcrypt
+-   bootstrap
+-   compression
+-   dotenv
 -   express
--   express-session
 -   express-flash
+-   express-session
 -   passport
 -   passport-local
 -   mongoose
--   pug
 -   helmet
 -   hpp
+-   pug
 
 ## TIL
 
