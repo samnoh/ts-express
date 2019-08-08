@@ -1,9 +1,16 @@
 # TypeScript + Express.js
 
-## Dependencies
+## `Dependencies`
 
--   express.js
--   express-status-monitor
+-   express
+-   express-session
+-   express-flash
+-   passport
+-   passport-local
+-   mongoose
+-   pug
+-   helmet
+-   hpp
 
 ## TIL
 
