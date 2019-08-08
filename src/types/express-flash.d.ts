@@ -4,7 +4,7 @@ type flashInput = { [key in 'msg']: string };
 
 declare namespace Express {
     export interface Request {
-        flash(event: string, message: flashInput | flashInput[]): any;
+        flash(event: string, message: flashInput | flashInput[]): void;
     }
 }
 
