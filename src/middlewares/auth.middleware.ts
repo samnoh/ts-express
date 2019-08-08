@@ -19,3 +19,8 @@ export const isNotLoggedIn = (req: RequestWithPassport, res: Response, next: Nex
 
     res.redirect('/');
 };
+
+export const setUser = (req: RequestWithPassport, res: Response, next: NextFunction) => {
+    res.locals.user = req.user;
+    next();
+};

@@ -1,5 +1,7 @@
 import path from 'path';
 import express, { Express } from 'express';
+import hpp from 'hpp';
+import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
@@ -13,6 +15,7 @@ import { passportConfig } from './passport';
 // Route handlers
 import { router as authRouter } from './routes/account';
 import { router as indexRouter } from './routes/home';
+import * as authMiddleware from './middlewares/auth.middleware';
 import * as errorMiddleware from './middlewares/error.middleware';
 
 // Create Express server
@@ -30,6 +33,7 @@ app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'pug');
 
 app.use(compression());
+app.use(helmet());
 app.use(morgan(prod ? 'combined' : 'tiny'));
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400 }));
 app.use(express.static(path.join(__dirname, '..', '/node_modules/jquery/dist'), { maxAge: 86400 }));
@@ -38,6 +42,7 @@ app.use(
 );
 app.use(express.urlencoded({ extended: false })); // body-parser
 app.use(express.json()); // body-parser
+app.use(hpp());
 app.use(
     session({
         resave: true,
@@ -54,6 +59,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use(authMiddleware.setUser); // set res.locals.user
 
 app.disable('x-powered-by');
 
@@ -65,6 +71,9 @@ app.use(errorMiddleware.pageNotFound);
 // Error handlers
 app.use(errorMiddleware.errorHandler);
 
-app.listen(app.get('port'), () => {
-    console.log(`Server has started port on ${app.get('port')} in ${app.get('env')} mode`);
-});
+app.listen(
+    app.get('port'),
+    (): void => {
+        console.log(`Server has started port on ${app.get('port')} in ${app.get('env')} mode`);
+    }
+);

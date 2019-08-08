@@ -13,11 +13,11 @@ export const local = () => {
                 usernameField: 'userId',
                 passwordField: 'password'
             },
-            async (email, password, done) => {
+            async (userId, password, done) => {
                 try {
-                    const user = await User.findOne({ userId: email });
+                    const user = await User.findOne({ userId });
                     if (!user) {
-                        return done(null, false, { message: `Email ${email} not found.` });
+                        return done(null, false, { message: `ID ${userId} not found.` });
                     }
 
                     const result = await bcrypt.compare(password, user.password);
@@ -25,7 +25,7 @@ export const local = () => {
                         return done(null, user);
                     }
 
-                    return done(null, false, { message: 'Invalid email or password.' });
+                    return done(null, false, { message: 'Invalid ID or password.' });
                 } catch (e) {
                     console.error(e);
                     return done(e);
