@@ -8,4 +8,9 @@ router.get('/login', (req: Request, res: Response, next: NextFunction) => {
     });
 });
 
+router.post('/login', (req: Request, res: Response, next: NextFunction) => {
+    const { userId, password } = req.body;
+    res.send(userId + password);
+});
+
 export { router };
