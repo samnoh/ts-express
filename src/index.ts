@@ -1,14 +1,16 @@
 import path from 'path';
-import express, { Express, Request, Response, NextFunction } from 'express';
+import express, { Express } from 'express';
+import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
-import compression from 'compression';
-import { SESSION_SECRET, prod } from './utils/secrets';
+import flash from 'express-flash';
 
 // Route handlers
 import { router as authRouter } from './routes/account';
 import { router as indexRouter } from './routes/home';
 import * as errorMiddleware from './middlewares/error.middleware';
+
+import { SESSION_SECRET, prod } from './utils/secrets';
 
 const app: Express = express();
 
@@ -28,8 +30,8 @@ app.use(express.urlencoded({ extended: false })); // body-parser
 app.use(express.json()); // body-parser
 app.use(
     session({
-        resave: false,
-        saveUninitialized: false,
+        resave: true,
+        saveUninitialized: true,
         secret: SESSION_SECRET,
         cookie: {
             maxAge: 1209600000, // two weeks
@@ -39,6 +41,7 @@ app.use(
         name: 'TS+EXPRESS'
     })
 );
+app.use(flash());
 
 app.disable('x-powered-by');
 

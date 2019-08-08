@@ -7,6 +7,13 @@
 
 ## TIL
 
+### Mapped Types
+
+```typescript
+type Keys = 'message' | 'isAdmin';
+type Flags = { [K in Keys]: boolean };
+```
+
 ### Express
 
 -   Type Definition
