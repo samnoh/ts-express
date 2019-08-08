@@ -11,13 +11,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         if !user
             ul.navbar-nav.ml-auto.text-right.mr-3
                 li.nav-item(class=(title === 'Login' && 'active'))
-                    a.nav-link(href='/auth/login') Login
+                    a.nav-link(href='/account/login') Login
                 li.nav-item(class=(title === 'Register' && 'active'))
-                    a.nav-link(href='/auth/signup') Register
+                    a.nav-link(href='/account/signup') Register
         else
             ul.navbar-nav.ml-auto.text-right.mr-3
                 li.nav-item(class=(title === 'Profile | ' + user.id && 'active'))
                     a.nav-link(href='/profile/' + user.id)= user.id
             ul.navbar-nav.text-right.mr-3
                 li.nav-item
-                    a.nav-link(href='/auth/logout') Logout
+                    a.nav-link(href='/account/logout') Logout

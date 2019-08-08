@@ -6,7 +6,7 @@ block content
     .row.justify-content-center
         include common/flash.pug
         .col-md-8.mb-4
-            form(action='/auth/login' method='POST')
+            form(action='/account/login' method='POST')
                 .form-group
                     label(for='inputId') ID
                     input#inputId.form-control(type='text' name='userId' required)
@@ -16,4 +16,4 @@ block content
                 button.btn.btn-lg.btn-block.btn-outline-success(type='submit') Login
         .col-md-8
             .text-right
-                a(href="/auth/signup").text-black-50 Create an Account
+                a(href="/account/signup").text-black-50 Create an Account

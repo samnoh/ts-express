@@ -1,6 +1,9 @@
 # TypeScript + Express.js
 
+## Dependencies
+
 -   express.js
+-   express-status-monitor
 
 ## TIL
 
