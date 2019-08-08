@@ -3,16 +3,26 @@ import express, { Express } from 'express';
 import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
+import passport from 'passport';
 import flash from 'express-flash';
+
+import { SESSION_SECRET, prod } from './utils/secrets';
+import { connect } from './models';
+import { passportConfig } from './passport';
 
 // Route handlers
 import { router as authRouter } from './routes/account';
 import { router as indexRouter } from './routes/home';
 import * as errorMiddleware from './middlewares/error.middleware';
 
-import { SESSION_SECRET, prod } from './utils/secrets';
-
+// Create Express server
 const app: Express = express();
+
+// Connect to db
+connect();
+
+// Passport configuration
+passportConfig();
 
 // Express configuration
 app.set('port', prod ? process.env.PORT : 5000);
@@ -41,6 +51,8 @@ app.use(
         name: 'TS+EXPRESS'
     })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 
 app.disable('x-powered-by');
