@@ -17,7 +17,7 @@ export const local = () => {
                 try {
                     const user = await User.findOne({ userId });
                     if (!user) {
-                        return done(null, false, { message: `ID ${userId} not found.` });
+                        return done(null, false, { message: `ID "${userId}" not found.` });
                     }
 
                     const result = await bcrypt.compare(password, user.password);

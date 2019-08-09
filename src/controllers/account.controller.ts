@@ -32,7 +32,7 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
             }
 
             if (!user) {
-                req.flash('errors', [{ msg: info.message }]);
+                req.flash('errors', { msg: info.message });
                 return res.redirect('/account/login');
             }
 
@@ -40,7 +40,7 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
                 user,
                 (loginError): void => {
                     if (loginError) {
-                        req.flash('errors', [{ msg: loginError }]);
+                        req.flash('errors', { msg: loginError });
                         return res.redirect('/account/login');
                     }
                     res.redirect('/');
@@ -74,7 +74,7 @@ export const postSignup = async (
 
         const exUser = await User.findOne({ userId });
         if (exUser) {
-            req.flash('errors', [{ msg: 'Already signed up' }]);
+            req.flash('errors', { msg: 'Already signed up' });
             return res.redirect('/account/signup');
         }
 

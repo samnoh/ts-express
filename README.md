@@ -44,6 +44,25 @@ const app: Express = express();
 app.get('/', (req: Request, res: Response, next: NextFunction) => { ... });
 ```
 
+### d.ts
+
+-   Triple-Slash Directives
+    -   import type definition in TypeScript
+
+```typescript
+/// <reference types="modulename" />
+```
+
+-   namespace
+    -   internal modules
+
+```typescript
+declare namespace "modulename" {
+    export interface aaa { }
+    export class bbb { }
+}
+```
+
 ### Unix Copy
 
 ```bash
