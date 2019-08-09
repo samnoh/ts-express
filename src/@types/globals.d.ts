@@ -4,5 +4,6 @@ declare global {
     interface ErrorProps {
         status?: number;
         message?: string;
+        stack?: string;
     }
 }
