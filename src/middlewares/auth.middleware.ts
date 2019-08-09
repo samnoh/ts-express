@@ -25,5 +25,6 @@ export const setRedirection = (req: Request, res: Response, next: NextFunction) 
     if (!req.user && !req.path.match(/^\/account/)) {
         req.session.redirectTo = req.path;
     }
+
     next();
 };

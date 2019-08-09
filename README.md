@@ -9,6 +9,7 @@
 -   express
 -   express-flash
 -   express-session
+-   ts-express-decorators
 -   passport
 -   passport-local
 -   mongoose
@@ -65,6 +66,8 @@ declare namespace "modulename" {
     export class bbb { }
 }
 ```
+
+### ts-express-decorators
 
 ### Unix Copy
 
