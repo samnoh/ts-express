@@ -20,3 +20,10 @@ export const setUser = (req: Request, res: Response, next: NextFunction) => {
     res.locals.user = req.user;
     next();
 };
+
+export const setRedirection = (req: Request, res: Response, next: NextFunction) => {
+    if (!req.user && !req.path.match(/^\/account/)) {
+        req.session.redirectTo = req.path;
+    }
+    next();
+};

@@ -29,7 +29,7 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 
             if (!user) {
                 req.flash('errors', { msg: info.message });
-                return res.status(403).redirect('/account/login');
+                return res.redirect('/account/login');
             }
 
             req.login(
@@ -37,9 +37,9 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
                 (loginError): void => {
                     if (loginError) {
                         req.flash('errors', { msg: loginError });
-                        return res.status(403).redirect('/account/login');
+                        return res.redirect('/account/login');
                     }
-                    res.redirect('/'); // successful login
+                    res.redirect(req.session.redirectTo || '/'); // redirect after successful login
                 }
             );
         }
@@ -71,7 +71,7 @@ export const postSignup = async (
         const exUser = await User.findOne({ userId });
         if (exUser) {
             req.flash('errors', { msg: 'Already signed up' });
-            return res.status(409).redirect('/account/signup');
+            return res.redirect('/account/signup');
         }
 
         const hashedPassword = await bcrypt.hash(password, 12);
@@ -82,7 +82,7 @@ export const postSignup = async (
             password: hashedPassword
         });
 
-        res.status(201).redirect('/account/login');
+        res.redirect('/account/login');
     } catch (e) {
         console.error(e);
         next(e);

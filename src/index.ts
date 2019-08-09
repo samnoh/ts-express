@@ -59,9 +59,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(authMiddleware.setUser); // set res.locals.user
 
-app.disable('x-powered-by');
+// Custom middlewares
+app.use(authMiddleware.setUser); // set res.locals.user
+app.use(authMiddleware.setRedirection); // set req.session.redirectTo
 
 // App routes
 app.use('/', indexRouter);

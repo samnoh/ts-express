@@ -16,6 +16,7 @@ export const local = () => {
             async (userId, password, done) => {
                 try {
                     const user = await User.findOne({ userId });
+
                     if (!user) {
                         return done(null, false, { message: `ID "${userId}" not found.` });
                     }
