@@ -6,7 +6,7 @@ import { local } from './local';
 export const passportConfig = () => {
     passport.serializeUser<any, any>(
         (user, done): void => {
-            done(undefined, user._id);
+            done(null, user._id);
         }
     );
 

@@ -40,8 +40,8 @@ app.use(express.static(path.join(__dirname, '..', '/node_modules/jquery/dist'), 
 app.use(
     express.static(path.join(__dirname, '..', '/node_modules/bootstrap/dist'), { maxAge: 86400 })
 );
-app.use(express.urlencoded({ extended: false })); // body-parser
-app.use(express.json()); // body-parser
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(hpp());
 app.use(
     session({
