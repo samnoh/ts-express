@@ -1,10 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-interface RequestWithPassport extends Request {
-    isAuthenticated(): boolean;
-}
-
-export const isLoggedIn = (req: RequestWithPassport, res: Response, next: NextFunction) => {
+export const isLoggedIn = (req: Request, res: Response, next: NextFunction) => {
     if (req.isAuthenticated()) {
         return next();
     }
@@ -12,7 +8,7 @@ export const isLoggedIn = (req: RequestWithPassport, res: Response, next: NextFu
     res.redirect('/account/login');
 };
 
-export const isNotLoggedIn = (req: RequestWithPassport, res: Response, next: NextFunction) => {
+export const isNotLoggedIn = (req: Request, res: Response, next: NextFunction) => {
     if (!req.isAuthenticated()) {
         return next();
     }
@@ -20,7 +16,7 @@ export const isNotLoggedIn = (req: RequestWithPassport, res: Response, next: Nex
     res.redirect('/');
 };
 
-export const setUser = (req: RequestWithPassport, res: Response, next: NextFunction) => {
+export const setUser = (req: Request, res: Response, next: NextFunction) => {
     res.locals.user = req.user;
     next();
 };

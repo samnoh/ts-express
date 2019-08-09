@@ -55,8 +55,11 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => { ... });
 
 -   namespace
     -   internal modules
+    -   interfaces can be merged (override)
 
 ```typescript
+import modulename = require('modulename');
+
 declare namespace "modulename" {
     export interface aaa { }
     export class bbb { }

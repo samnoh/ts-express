@@ -4,10 +4,6 @@ import bcrypt from 'bcrypt';
 
 import { User } from '../models/user';
 
-interface RequestWithBody extends Request {
-    body: { [key: string]: string | undefined };
-}
-
 /**
  * GET /account/login
  * Login page.
@@ -65,7 +61,7 @@ export const getSignup = (req: Request, res: Response, next: NextFunction): void
  * Sign up using name, email, userId and password.
  */
 export const postSignup = async (
-    req: RequestWithBody,
+    req: Request,
     res: Response,
     next: NextFunction
 ): Promise<void> => {

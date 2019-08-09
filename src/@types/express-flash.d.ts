@@ -1,4 +1,4 @@
-// / <reference types="express" />
+/// <reference types="express" />
 
 type flashInput = { [key in 'msg']: string };
 
