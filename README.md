@@ -71,7 +71,7 @@ declare namespace "modulename" {
 
 -   [npm](https://www.npmjs.com/package/reflect-metadata)
 
--   install
+-   Install
 
 ```bash
 npm install --save-dev reflect-metadata
