@@ -5,7 +5,7 @@ import { AppRouter } from '../../AppRouter';
 import { Methods } from './Methods';
 import { MetadataKeys } from './MetadataKeys';
 
-function bodyValidators(keys: string): RequestHandler {
+function bodyValidators(keys: string[]): RequestHandler {
     return function(req: Request, res: Response, next: NextFunction) {
         if (!req.body) {
             res.redirect(req.session.redirectTo || '/');
@@ -34,7 +34,7 @@ export function controller(routePrefix: string) {
             const method: Methods = Reflect.getMetadata(MetadataKeys.METHOD, target.prototype, key);
             const middlewares =
                 Reflect.getMetadata(MetadataKeys.MIDDLEWARE, target.prototype, key) || [];
-            const requiredBodyProps =
+            const requiredBodyProps: string[] =
                 Reflect.getMetadata(MetadataKeys.VALIDATOR, target.prototype, key) || [];
 
             const validator = bodyValidators(requiredBodyProps);
