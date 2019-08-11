@@ -70,6 +70,7 @@ declare namespace "modulename" {
 ### reflect-metadata
 
 -   [npm](https://www.npmjs.com/package/reflect-metadata)
+
 -   install
 
 ```bash
@@ -79,8 +80,8 @@ npm install --save-dev reflect-metadata
 -   tsconfig.json
 
 ```json
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+"experimentalDecorators": true,
+"emitDecoratorMetadata": true
 ```
 
 -   `Reflect.defineMetadata(metadataKey, metadataValue, C.prototype, "method")`
