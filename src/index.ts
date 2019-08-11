@@ -13,10 +13,10 @@ import { connect } from './models';
 import { passportConfig } from './passport';
 
 // Route handlers
-import { router as authRouter } from './routes/account';
-import { router as indexRouter } from './routes/home';
-import * as authMiddleware from './middlewares/auth.middleware';
-import * as errorMiddleware from './middlewares/error.middleware';
+import { AppRouter } from './AppRouter';
+import './controllers/account.controller';
+import './controllers/root.controller';
+import { setUser, setRedirection, pageNotFound, errorHandler } from './middlewares';
 
 // Create Express server
 const app: Express = express();
@@ -53,7 +53,7 @@ app.use(
             secure: prod,
             httpOnly: true
         },
-        name: 'TS+EXPRESS'
+        name: 'djfknvt1@'
     })
 );
 app.use(passport.initialize());
@@ -61,16 +61,15 @@ app.use(passport.session());
 app.use(flash());
 
 // Custom middlewares
-app.use(authMiddleware.setUser); // set res.locals.user
-app.use(authMiddleware.setRedirection); // set req.session.redirectTo
+app.use(setUser); // set res.locals.user
+app.use(setRedirection); // set req.session.redirectTo
 
 // App routes
-app.use('/', indexRouter);
-app.use('/account', authRouter);
-app.use(errorMiddleware.pageNotFound);
+app.use(AppRouter.getInstance);
+app.use(pageNotFound);
 
 // Error handlers
-app.use(errorMiddleware.errorHandler);
+app.use(errorHandler);
 
 app.listen(
     app.get('port'),

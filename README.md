@@ -9,7 +9,7 @@
 -   express
 -   express-flash
 -   express-session
--   ts-express-decorators
+-   reflect-metadata
 -   passport
 -   passport-local
 -   mongoose
@@ -67,7 +67,7 @@ declare namespace "modulename" {
 }
 ```
 
-### ts-express-decorators
+### reflect-metadata
 
 ### Unix Copy
 

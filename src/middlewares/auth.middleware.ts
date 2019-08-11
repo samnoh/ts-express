@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, RequestHandler, Response, NextFunction } from 'express';
 
 export const isLoggedIn = (req: Request, res: Response, next: NextFunction) => {
     if (req.isAuthenticated()) {
@@ -22,7 +22,13 @@ export const setUser = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export const setRedirection = (req: Request, res: Response, next: NextFunction) => {
-    if (!req.user && !req.path.match(/^\/account/)) {
+    if (
+        !req.user &&
+        !req.path.match(/^\/account/) &&
+        !req.path.match(/^\/css/) &&
+        !req.path.match(/^\/js/) &&
+        !req.path.match(/^\/img/)
+    ) {
         req.session.redirectTo = req.path;
     }
 
