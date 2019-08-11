@@ -76,6 +76,13 @@ declare namespace "modulename" {
 npm install --save-dev reflect-metadata
 ```
 
+-   tsconfig.json
+
+```json
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+```
+
 -   `Reflect.defineMetadata(metadataKey, metadataValue, C.prototype, "method")`
 -   `Reflect.getMetadata(metadataKey, obj, "method")`
 
