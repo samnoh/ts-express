@@ -1,22 +1,5 @@
 # TypeScript + Express.js
 
-## `Dependencies`
-
--   bcrypt
--   bootstrap
--   compression
--   dotenv
--   express
--   express-flash
--   express-session
--   reflect-metadata
--   passport
--   passport-local
--   mongoose
--   helmet
--   hpp
--   pug
-
 ## `TIL`
 
 ### Mapped Types
