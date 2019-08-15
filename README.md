@@ -119,3 +119,43 @@ function describeUser(...keys: string[]) {
 ```bash
 cp -r [folder] [dest folder]
 ```
+
+### module-alias
+
+-   install
+
+```bash
+npm install --save module-alias
+```
+
+-   import
+
+```typescript
+import 'module-alias/register';
+```
+
+-   tsconfig.json
+
+```json
+"baseUrl": "./src",
+"path": {
+    "@util": ["util/index"],
+    "@lib/*": ["lib/*"]
+}
+```
+
+-   package.json
+
+```json
+"_moduleAliases": {
+    "@util": "build/util/index.js",
+    "@lib": "build/lib"
+}
+```
+
+-   Usage
+
+```typescript
+import { foo } from '@util';
+import { getUsers } from '@lib/users';
+```
