@@ -67,6 +67,7 @@
         "@deco": "build/controllers/decorators/index.js",
         "@middlewares": "build/middlewares/index.js",
         "@services": "build/services",
-        "@utils": "build/utils"
+        "@utils": "build/utils",
+        "node_modules": "node_modules"
     }
 }

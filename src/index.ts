@@ -37,10 +37,8 @@ app.use(compression());
 app.use(helmet());
 app.use(morgan(prod ? 'combined' : 'tiny'));
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400 }));
-app.use(express.static(path.join(__dirname, '..', '/node_modules/jquery/dist'), { maxAge: 86400 }));
-app.use(
-    express.static(path.join(__dirname, '..', '/node_modules/bootstrap/dist'), { maxAge: 86400 })
-);
+app.use(express.static(path.join('node_modules/jquery/dist'), { maxAge: 86400 }));
+app.use(express.static(path.join('node_modules/bootstrap/dist'), { maxAge: 86400 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(hpp());
