@@ -1,6 +1,6 @@
 import passport from 'passport';
 
-import { User } from '../models/User';
+import { User } from '@models/User';
 import { local } from './local';
 
 export const passportConfig = () => {

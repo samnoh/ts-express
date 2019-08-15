@@ -2,9 +2,9 @@ import { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
 import bcrypt from 'bcrypt';
 
-import { User } from '../models/user';
-import { controller, get, post, use, bodyValidator } from './decorators';
-import { isLoggedIn, isNotLoggedIn } from '../middlewares';
+import { User } from '@models/user';
+import { controller, get, post, use, bodyValidator } from '@deco';
+import { isLoggedIn, isNotLoggedIn } from '@middlewares';
 
 @controller('/account')
 class AccountCtlr {

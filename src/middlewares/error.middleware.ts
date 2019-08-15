@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { prod } from '../utils/secrets';
+
+import { prod } from '@utils/secrets';
 
 export const pageNotFound = (req: Request, res: Response, next: NextFunction): void => {
     const err: ErrorProps = new Error('Not Found');

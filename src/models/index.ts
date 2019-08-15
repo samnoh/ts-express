@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-import { prod, MONGODB_URI } from '../utils/secrets';
+
+import { prod, MONGODB_URI } from '@utils/secrets';
 
 export const connect = () => {
     const connect = () => {

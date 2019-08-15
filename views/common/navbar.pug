@@ -17,7 +17,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         else
             ul.navbar-nav.ml-auto.text-right.mr-3
                 li.nav-item(class=(title === 'Profile | ' + user.userId && 'active'))
-                    a.nav-link(href='/profile/' + userId)= user.userId
+                    a.nav-link.disabled(href='/profile/' + userId )= user.userId
             ul.navbar-nav.text-right.mr-3
                 li.nav-item
                     a.nav-link(href='/account/logout') Logout

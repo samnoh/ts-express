@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { controller, get, use } from './decorators';
-import { isLoggedIn } from '../middlewares';
+import { controller, get, use } from '@deco';
+import { isLoggedIn } from '@middlewares';
 
 @controller('')
 class HomeCtrl {

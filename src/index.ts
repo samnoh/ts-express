@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import path from 'path';
 import express, { Express } from 'express';
 import hpp from 'hpp';
@@ -8,15 +9,15 @@ import session from 'express-session';
 import passport from 'passport';
 import flash from 'express-flash';
 
-import { SESSION_SECRET, prod } from './utils/secrets';
-import { connect } from './models';
-import { passportConfig } from './passport';
+import { SESSION_SECRET, prod } from '@utils/secrets';
+import { connect } from '@models/index';
+import { passportConfig } from '@services/passport';
 
 // Route handlers
 import { AppRouter } from './AppRouter';
-import './controllers/account.controller';
-import './controllers/root.controller';
-import { setUser, setRedirection, pageNotFound, errorHandler } from './middlewares';
+import '@controllers/account.controller';
+import '@controllers/root.controller';
+import { setUser, setRedirection, pageNotFound, errorHandler } from '@middlewares';
 
 // Create Express server
 const app: Express = express();
