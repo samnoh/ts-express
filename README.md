@@ -122,6 +122,9 @@ cp -r [folder] [dest folder]
 
 ### module-alias
 
+-   Create aliases of directories and register custom module paths
+-   [npm](https://www.npmjs.com/package/module-alias)
+
 -   Install
 
 ```bash
