@@ -122,16 +122,16 @@ cp -r [folder] [dest folder]
 
 ### module-alias
 
--   install
+-   Install
 
 ```bash
 npm install --save module-alias
 ```
 
--   import
+-   `import`
 
 ```typescript
-import 'module-alias/register';
+import 'module-alias/register'; // at the very main file of your app, before any code
 ```
 
 -   tsconfig.json
