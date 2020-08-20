@@ -43,7 +43,7 @@
         "reflect-metadata": "^0.1.13"
     },
     "dependencies": {
-        "bcrypt": "^3.0.6",
+        "bcrypt": "^5.0.0",
         "bootstrap": "^4.3.1",
         "compression": "^1.7.4",
         "dotenv": "^8.0.0",
